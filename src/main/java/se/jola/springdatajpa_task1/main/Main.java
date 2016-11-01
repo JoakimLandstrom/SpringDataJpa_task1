@@ -20,12 +20,12 @@ public class Main {
 	    EmployeeRepository repository = context.getBean(EmployeeRepository.class);
 	    
 	    ParkingSpotRepository parkingSpotRepository = context.getBean(ParkingSpotRepository.class);
-	    ParkingSpot parkingSpot = new ParkingSpot("parking spot", 1l);
+	    ParkingSpot parkingSpot = new ParkingSpot("parking spot");
 	    
 	    parkingSpotRepository.save(parkingSpot);
-	    employee = repository.save(new Employee("Joakim", "Landström"));
+	    employee = repository.save(new Employee("Joakim", "Landström").setParkingSpot(parkingSpot));
 	    
-	    System.out.println(employee.getFirstName());
+	    System.out.println(employee.getParkingSpot().getId());
 	}
     }
     

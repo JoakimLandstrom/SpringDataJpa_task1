@@ -12,9 +12,6 @@ public final class ParkingSpot {
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true)
-    private Long parkingSpotId;
-
     @Column
     private String label;
 
@@ -22,17 +19,12 @@ public final class ParkingSpot {
 
     }
 
-    public ParkingSpot(String label, Long id) {
+    public ParkingSpot(String label) {
 	this.label = label;
-	this.parkingSpotId = id;
     }
 
     public Long getId() {
 	return id;
-    }
-
-    public Long getParkingSpotId() {
-	return parkingSpotId;
     }
 
     public String getLabel() {
