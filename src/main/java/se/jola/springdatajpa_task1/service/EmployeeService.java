@@ -7,14 +7,12 @@ import se.jola.springdatajpa_task1.repo.EmployeeRepository;
 
 @Service
 public final class EmployeeService {
-    
-    @Autowired
-    private final EmployeeRepository employeeRepository;
-    
-    public EmployeeService(EmployeeRepository employeeRepository){
-	this.employeeRepository = employeeRepository;
-    }
-    
-    
+
+	@Autowired
+	private final EmployeeRepository employeeRepository;
+
+	public EmployeeService(EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
+	}
 
 }

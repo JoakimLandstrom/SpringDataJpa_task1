@@ -21,43 +21,43 @@ import com.zaxxer.hikari.HikariDataSource;
 @EnableTransactionManagement
 public class ServiceConfig {
 
-    @Bean
-    public DataSource dataSource() {
+	@Bean
+	public DataSource dataSource() {
 
-	HikariConfig hikariConfig = new HikariConfig();
-	hikariConfig.setDriverClassName("com.mysql.jdbc.Driver");
-	hikariConfig.setJdbcUrl("jdbc:mysql://localhost:3306/jpa-demo");
-	hikariConfig.setUsername("root");
-	hikariConfig.setPassword("root");
+		HikariConfig hikariConfig = new HikariConfig();
+		hikariConfig.setDriverClassName("com.mysql.jdbc.Driver");
+		hikariConfig.setJdbcUrl("jdbc:mysql://localhost:3306/jpa-demo");
+		hikariConfig.setUsername("root");
+		hikariConfig.setPassword("root");
 
-	return new HikariDataSource(hikariConfig);
-    }
+		return new HikariDataSource(hikariConfig);
+	}
 
-    @Bean
-    public JpaTransactionManager transactionManager(EntityManagerFactory factory) {
-	return new JpaTransactionManager(factory);
-    }
+	@Bean
+	public JpaTransactionManager transactionManager(EntityManagerFactory factory) {
+		return new JpaTransactionManager(factory);
+	}
 
-    @Bean
-    public JpaVendorAdapter jpaVendorAdapter() {
+	@Bean
+	public JpaVendorAdapter jpaVendorAdapter() {
 
-	HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-	adapter.setDatabase(Database.MYSQL);
-	adapter.setGenerateDdl(true);
+		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
+		adapter.setDatabase(Database.MYSQL);
+		adapter.setGenerateDdl(true);
 
-	return adapter;
-    }
+		return adapter;
+	}
 
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+	@Bean
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
-	LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 
-	factory.setDataSource((javax.sql.DataSource) dataSource());
-	factory.setJpaVendorAdapter(jpaVendorAdapter());
-	factory.setPackagesToScan("se.jola.springdatajpa_task1.model");
+		factory.setDataSource((javax.sql.DataSource) dataSource());
+		factory.setJpaVendorAdapter(jpaVendorAdapter());
+		factory.setPackagesToScan("se.jola.springdatajpa_task1.model");
 
-	return factory;
-    }
+		return factory;
+	}
 
 }

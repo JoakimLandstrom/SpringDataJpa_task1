@@ -8,11 +8,11 @@ import se.jola.springdatajpa_task1.repo.DepartmentRepository;
 @Service
 public final class DepartmentService {
 
-    @Autowired
-    private final DepartmentRepository departmentRepository;
-    
-    public DepartmentService(DepartmentRepository departmentRepository){
-	this.departmentRepository = departmentRepository;
-    }
-    
+	@Autowired
+	private final DepartmentRepository departmentRepository;
+
+	public DepartmentService(DepartmentRepository departmentRepository) {
+		this.departmentRepository = departmentRepository;
+	}
+
 }
